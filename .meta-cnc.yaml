@@ -29,16 +29,16 @@ variables:
     type_hint: text
   - name: ospfv3_area_id
     description: area id (as numbner)
-    default: 0
+    default: 1.1.1.1
     type_hint: numerial
   - name: ospfv3_enabled_interface
     description: interface participating in ospfv3
     default: ethernet1/1
     type_hint: text
-  # - name: tag_name
-  #   description: tag name
-  #   default: tag name
-  #   type_hint: text
+  - name: ospfv3_router_id
+    description: ospfv3_router_id
+    default: 1.1.1.1
+    type_hint: text
   # - name: tag_description
   #   description: tag description
   #   default: tag description
