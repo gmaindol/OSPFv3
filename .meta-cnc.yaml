@@ -62,7 +62,7 @@ variables:
 snippets:
   - name: export_rules
     xpath: /config/devices/entry[@name='localhost.localdomain']/network/virtual-router/entry[@name='VR']/protocol/redist-profile-ipv6
-    file: external_list.xml
+    file: redistribution_profile.xml
   # - name: tag
   #   xpath: /config/devices/entry[@name='localhost.localdomain']/vsys/entry[@name='vsys1']/tag
   #   file: tag.xml
