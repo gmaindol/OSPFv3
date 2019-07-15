@@ -27,14 +27,14 @@ variables:
     description: name of the redist_profile_name
     default: redist_ospfv3
     type_hint: text
-  # - name: edl_description
-  #   description: name of the external list
-  #   default: this is an ip block list
-  #   type_hint: text
-  # - name: edl_url
-  #   description: external list url
-  #   default: http://someurl.com
-  #   type_hint: text
+  - name: ospfv3_area_id
+    description: area id (as numbner)
+    default: 0
+    type_hint: numerial
+  - name: ospfv3_enabled_interface
+    description: interface participating in ospfv3
+    default: ethernet1/1
+    type_hint: text
   # - name: tag_name
   #   description: tag name
   #   default: tag name
@@ -63,9 +63,9 @@ snippets:
   - name: export_rules
     xpath: /config/devices/entry[@name='localhost.localdomain']/network/virtual-router/entry[@name='default']/protocol/redist-profile-ipv6
     file: redistribution_profile.xml
-  # - name: tag
-  #   xpath: /config/devices/entry[@name='localhost.localdomain']/vsys/entry[@name='vsys1']/tag
-  #   file: tag.xml
+  - name: ospfv3_config
+    xpath: /config/devices/entry[@name='localhost.localdomain']/network/virtual-router/entry[@name='VR']/protocol/ospfv3
+    file: ospfv3.xml
   # - name: security_rules
   #   xpath: /config/devices/entry[@name='localhost.localdomain']/vsys/entry[@name='vsys1']/rulebase/security/rules
   #   file: security_rules.xml

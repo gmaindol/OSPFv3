@@ -1,0 +1,36 @@
+     <area>
+        <entry name="{{ ospfv3_area_id }}">
+          <type>
+            <normal/>
+          </type>
+          <interface>
+            <entry name="{{ ospfv3_enabled_interface }}">
+              <bfd>
+                <profile>Inherit-vr-global-setting</profile>
+              </bfd>
+              <enable>yes</enable>
+              <passive>no</passive>
+              <gr-delay>10</gr-delay>
+              <instance-id>0</instance-id>
+              <metric>10</metric>
+              <priority>1</priority>
+              <hello-interval>10</hello-interval>
+              <dead-counts>4</dead-counts>
+              <retransmit-interval>5</retransmit-interval>
+              <transit-delay>1</transit-delay>
+              <link-type>
+                <broadcast/>
+              </link-type>
+            </entry>
+          </interface>
+        </entry>
+      </area>
+      <enable>yes</enable>
+      <router-id>{{ ospfv3_router_id }}</router-id>
+      <reject-default-route>no</reject-default-route>
+      <allow-redist-default-route>no</allow-redist-default-route>
+      <export-rules>
+        <entry name="{{ redist_profile_name }}">
+          <new-path-type>ext-2</new-path-type>
+        </entry>
+      </export-rules>
