@@ -1,0 +1,12 @@
+     <entry name="{{ redist_profile_name }}">
+        <filter>
+          <type>
+            <member>connect</member>
+            <member>static</member>
+          </type>
+        </filter>
+        <priority>1</priority>
+        <action>
+          <redist/>
+        </action>
+      </entry>
