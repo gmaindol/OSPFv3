@@ -1,36 +1,72 @@
-     <area>
-        <entry name="{{ ospfv3_area_id }}">
-          <type>
-            <normal/>
-          </type>
-          <interface>
-            <entry name="{{ ospfv3_enabled_interface }}">
-              <bfd>
-                <profile>Inherit-vr-global-setting</profile>
-              </bfd>
-              <enable>yes</enable>
-              <passive>no</passive>
-              <gr-delay>10</gr-delay>
-              <instance-id>0</instance-id>
-              <metric>10</metric>
+<entry name="{{ virtual_router_name }}">
+        <protocol>
+          <bgp>
+            <enable>no</enable>
+            <dampening-profile>
+              <entry name="default">
+                <cutoff>1.25</cutoff>
+                <reuse>0.5</reuse>
+                <max-hold-time>900</max-hold-time>
+                <decay-half-life-reachable>300</decay-half-life-reachable>
+                <decay-half-life-unreachable>900</decay-half-life-unreachable>
+                <enable>yes</enable>
+              </entry>
+            </dampening-profile>
+          </bgp>
+          <redist-profile-ipv6>
+            <entry name="{{ redist_profile_name }}">
+              <filter>
+                <type>
+                  <member>connect</member>
+                  <member>static</member>
+                </type>
+              </filter>
               <priority>1</priority>
-              <hello-interval>10</hello-interval>
-              <dead-counts>4</dead-counts>
-              <retransmit-interval>5</retransmit-interval>
-              <transit-delay>1</transit-delay>
-              <link-type>
-                <broadcast/>
-              </link-type>
+              <action>
+                <redist/>
+              </action>
             </entry>
-          </interface>
-        </entry>
-      </area>
-      <enable>yes</enable>
-      <router-id>{{ ospfv3_router_id }}</router-id>
-      <reject-default-route>no</reject-default-route>
-      <allow-redist-default-route>no</allow-redist-default-route>
-      <export-rules>
-        <entry name="{{ redist_profile_name }}">
-          <new-path-type>ext-2</new-path-type>
-        </entry>
-      </export-rules>
+          </redist-profile-ipv6>
+          <ospfv3>
+            <area>
+              <entry name="{{ ospfv3_area_id }}">
+                <type>
+                  <normal/>
+                </type>
+                <interface>
+                  <entry name="{{ ospfv3_enabled_interface }}">
+                    <bfd>
+                      <profile>Inherit-vr-global-setting</profile>
+                    </bfd>
+                    <enable>yes</enable>
+                    <passive>no</passive>
+                    <gr-delay>10</gr-delay>
+                    <instance-id>0</instance-id>
+                    <metric>10</metric>
+                    <priority>1</priority>
+                    <hello-interval>10</hello-interval>
+                    <dead-counts>4</dead-counts>
+                    <retransmit-interval>5</retransmit-interval>
+                    <transit-delay>1</transit-delay>
+                    <link-type>
+                      <broadcast/>
+                    </link-type>
+                  </entry>
+                </interface>
+              </entry>
+            </area>
+            <enable>yes</enable>
+            <router-id>{{ ospfv3_router_id }}</router-id>
+            <reject-default-route>no</reject-default-route>
+            <allow-redist-default-route>no</allow-redist-default-route>
+            <export-rules>
+              <entry name="{{ redist_profile_name }}">
+                <new-path-type>ext-2</new-path-type>
+              </entry>
+            </export-rules>
+          </ospfv3>
+        </protocol>
+        <interface>
+          <member>{{ ospfv3_enabled_interface }}</member>
+        </interface>
+      </entry>

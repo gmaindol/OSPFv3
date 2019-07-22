@@ -28,7 +28,7 @@ variables:
     default: redist_ospfv3
     type_hint: text
   - name: ospfv3_area_id
-    description: area id (as numbner)
+    description: area id (as number)
     default: 1.1.1.1
     type_hint: numerial
   - name: ospfv3_enabled_interface
@@ -37,7 +37,11 @@ variables:
     type_hint: text
   - name: ospfv3_router_id
     description: ospfv3_router_id
-    default: 1.1.1.1
+    default: 2.2.2.2
+    type_hint: text
+  - name: virtual_router_name
+    description: virtual router name where ospfv3 needs to be enabled
+    default: default
     type_hint: text
   # - name: tag_description
   #   description: tag description
@@ -64,7 +68,7 @@ snippets:
     xpath: /config/devices/entry[@name='localhost.localdomain']/network/virtual-router/entry[@name='default']/protocol/redist-profile-ipv6
     file: redistribution_profile.xml
   - name: ospfv3_config
-    xpath: /config/devices/entry[@name='localhost.localdomain']/network/virtual-router/entry[@name='default']/protocol/ospfv3
+    xpath: /config/devices/entry[@name='localhost.localdomain']/network/virtual-router
     file: ospfv3.xml
   # - name: security_rules
   #   xpath: /config/devices/entry[@name='localhost.localdomain']/vsys/entry[@name='vsys1']/rulebase/security/rules
