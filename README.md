@@ -1,7 +1,7 @@
 # Configuring OSPFv3 on PANOS
-OSPFv3 configuration skillet provides quick way to configure OSPFv3 parameters to enable routing for the IPv6 dataplane interface. It provides quick options for enabling OSPFv3,area and routes export rules.
+OSPFv3 configuration skillet provides quick way to configure OSPFv3 parameters to enable routing for the IPv6 dataplane interface. It provides quick options for enabling OSPFv3 and routes export rules.
 
-##Prerequisites
+## Prerequisites
 1) IPv6 configured interfaces
 2) Neighbouring router with OSPFv3 enabled 
 
@@ -11,7 +11,7 @@ This skillet configures the following
 3) Area id
 4) Route Export Rule (Redistribution Profile)
 
-You can use "IPv6-Configuration" skillet in order to configure the IPv6 address on the dataplane interfaces.  In this skillet we have only enabled static and connected routes  under export rules. No Auth Profile is configured via this skillet
+You can use "IPv6-Configuration" skillet in order to configure the IPv6 address on the dataplane interfaces.  In this skillet we have only enabled static and connected routes under export rules. No Auth Profile is configured via this skillet
  
 
 ## Support Policy
